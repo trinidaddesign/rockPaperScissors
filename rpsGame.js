@@ -1,3 +1,5 @@
+let playerScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
     const arr = ["rock", "paper", "scissors"]
@@ -5,34 +7,53 @@ function getComputerChoice() {
     const answer = arr[randomIndex];
     return answer;
 }
-console.log(getComputerChoice());
-
-
-const playerSelection = prompt("rock paper or scissors");
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         return "tie game";
     }else if (computerSelection === "rock") {
         if (playerSelection === "scissors") {
-            return "you lost";
+            computerScore++
+            return `You lost! ${computerSelection} beat ${playerSelection}`;
         } else {
-            return "you win";
+            playerScore++
+            return `You won! ${playerSelection} beat ${computerSelection}`;
         }
     }else if (computerSelection === "paper") {
         if (playerSelection === "rock") {
-            return "you lost";
+            computerScore++
+            return `You lost! ${computerSelection} beat ${playerSelection}`;
         }else {
-            return "you win";
+            playerScore++
+            return `You won! ${playerSelection} beat ${computerSelection}`;
         }
     }else if (computerSelection === "scissors") {
         if (playerSelection === "paper") {
-            return "you lost";
+            computerScore++
+            return `You lost! ${computerSelection} beat ${playerSelection}`;
         }else {
-            return "you win";
+            playerScore++
+            return `You won! ${playerSelection} beat ${computerSelection}`;
         }
     }
 }
 
+function game() {
+    for (let i = 0; i < 5; i++) {
+        const playerSelection = prompt("rock paper or scissors");
+        console.log(playRound( playerSelection, getComputerChoice()));
+    }
+    console.log(`Final score: Human:${playerScore} Robot:${computerScore}`);
+    if (playerScore > computerScore) {
+        console.log("You have beaten the robots!");
+    }else {
+        console.log("All hail our robot overlords");
+    }
+}
 
-console.log(playRound( playerSelection, getComputerChoice()));
+game()
+
+
+
+
+
