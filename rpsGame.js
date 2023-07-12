@@ -1,4 +1,4 @@
-const weapons = document.querySelectorAll('#weapons');
+const weapons = document.querySelectorAll('#weapon');
 const scores = document.getElementById('#scores');
 
 
@@ -7,7 +7,7 @@ let playerScore = 0;
 let computerScore = 0;
 
 function playRound(e) {
-    const playerSelection = e.target.id;
+    const playerSelection = e.target.textContent;
     const computerSelection = getComputerChoice();
     const winner = compareSelection(playerSelection, computerSelection);
 
