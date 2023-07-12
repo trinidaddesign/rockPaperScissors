@@ -1,4 +1,4 @@
-const weapons = document.querySelectorAll('#weapon');
+const weapons = document.querySelectorAll('#weapons');
 const scores = document.getElementById('#scores');
 
 
