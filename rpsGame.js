@@ -1,5 +1,18 @@
+const weapons = document.querySelectorAll('#weapons');
+const scores = document.getElementById('#scores');
+
+
+
 let playerScore = 0;
 let computerScore = 0;
+
+function playRound(e) {
+    const playerSelection = e.target.id;
+    const computerSelection = getComputerChoice();
+    const winner = compareSelection(playerSelection, computerSelection);
+
+    console.log(playerSelection, computerSelection, winner, playerScore, computerScore);
+}
 
 function getComputerChoice() {
     const arr = ["rock", "paper", "scissors"]
@@ -8,54 +21,48 @@ function getComputerChoice() {
     return answer;
 }
 
-function playRound(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) {
+function compareSelection(player, computer) {
+    if (player === computer) {
         return "tie game";
-    }else if (computerSelection === "rock") {
-        if (playerSelection === "scissors") {
+    }else if (computer === "rock") {
+        if (player === "scissors") {
             computerScore++
-            return `You lost! ${computerSelection} beat ${playerSelection}. Score: human ${playerScore} Robot ${computerScore}`;
+            return 'Computer';
         } else {
             playerScore++
-            return `You won! ${playerSelection} beat ${computerSelection}. Score: human ${playerScore} Robot ${computerScore}`;
+            return 'Player';
         }
-    }else if (computerSelection === "paper") {
-        if (playerSelection === "rock") {
+    }else if (computer === "paper") {
+        if (player === "rock") {
             computerScore++
-            return `You lost! ${computerSelection} beat ${playerSelection}. Score: human ${playerScore} Robot ${computerScore}`;
+            return 'Computer';
         }else {
             playerScore++
-            return `You won! ${playerSelection} beat ${computerSelection}. Score: human ${playerScore} Robot ${computerScore}`;
+            return 'Player';
         }
-    }else if (computerSelection === "scissors") {
-        if (playerSelection === "paper") {
+    }else if (computer === "scissors") {
+        if (player === "paper") {
             computerScore++
-            return `You lost! ${computerSelection} beat ${playerSelection}. Score: human ${playerScore} Robot ${computerScore}`;
+            return 'Computer';
         }else {
             playerScore++
-            return `You won! ${playerSelection} beat ${computerSelection}. Score: human ${playerScore} Robot ${computerScore}`;
+            return 'Player';
         }
     }
 }
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        const playerSelection = prompt("rock paper or scissors").toLowerCase();
-        console.log(playRound( playerSelection, getComputerChoice()));
-    }
-    console.log(`Final score: Human:${playerScore} Robot:${computerScore}`);
-    
-    if(playerScore === computerScore) {
-        return "Tie game...Fist Fight!";
-        }if (playerScore > computerScore) {
-            console.log("You have beaten the robots!");
-        }else {
-            console.log("All hail our robot overlords");
-        }
-}
+function updateScore() {
+    const playerScoreP = document.getElementById('playerScore');
+    const computerScoreP = document.getElementById('computerScore');
 
-game()
+    playerScoreP.textContent = `Player Score: ${playerScore}`;
+    computerScoreP.textContent = `Computer Score: ${computerScore}`;
+};
 
+weapons.forEach(weapon => weapon.addEventListener('click', (e) => {
+    playRound(e);
+    updateScore();
+}))
 
 
 
