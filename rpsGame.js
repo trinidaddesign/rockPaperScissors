@@ -10,7 +10,7 @@ function playRound(e) {
     const playerSelection = e.target.textContent;
     const computerSelection = getComputerChoice();
     const winner = compareSelection(playerSelection, computerSelection);
-    gameEnd();
+    
 
     console.log(playerSelection, computerSelection, winner, playerScore, computerScore);
 }
