@@ -60,9 +60,7 @@ function updateScore() {
 
     playerScoreP.textContent = `Player Score: ${playerScore}`;
     computerScoreP.textContent = `Computer Score: ${computerScore}`;
-    if (totalScore > 5) {
-        resultP.textContent = 'Calculating results...'
-    }if (totalScore == 5) {
+    if (totalScore == 5) {
             if (playerScore >= 3) {
             resultP.textContent = `Final Score -- Human: ${playerScore} Robot: ${computerScore}`
             finalMessageP.textContent = 'Congratulations soldier! you beat the robots';
