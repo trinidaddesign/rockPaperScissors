@@ -3,7 +3,6 @@ const scores = document.getElementById('#scores');
 
 let playerScore = 0;
 let computerScore = 0;
-let gameCounter = 0;
 
 function playRound(e) {
     
@@ -23,9 +22,6 @@ function getComputerChoice() {
 }
 
 function compareSelection(player, computer) {
-    const resultsP = document.getElementById('#results');
-    const finalMessageP = document.getElementById('#finalMessage');
-
     if (player === computer) {
         return "tie game";
     }else if (computer === "rock") {
@@ -52,45 +48,35 @@ function compareSelection(player, computer) {
             playerScore++
             return 'Player';
         }
-    } if (i === 5) {
-            resultsP.textContent = `And the final score is: Humans: ${playerScore} Robots: ${computerScore}`;
-        };
-        if (playerScore >= 3) {
-            finalMessageP.textContent = 'Congratulations soldier! You defeated the robots!';
-        }else if (playerScore === computerScore) {
-            finalMessageP.textContent = 'Tie game...FIST FIGHT!'
-        }else {
-            finalMessageP.textContent = 'All hail the robot overlords';
-        }
+    }
 }
 
 function updateScore() {
     const playerScoreP = document.getElementById('playerScore');
     const computerScoreP = document.getElementById('computerScore');
+    const finalMessageP = document.getElementById('finalMessage');
+    const resultP = document.getElementById('results')
+    const totalScore = playerScore + computerScore;
 
     playerScoreP.textContent = `Player Score: ${playerScore}`;
     computerScoreP.textContent = `Computer Score: ${computerScore}`;
+    if (totalScore > 5) {
+        resultP.textContent = 'Calculating results...'
+    }if (totalScore == 5) {
+            if (playerScore >= 3) {
+            resultP.textContent = `Final Score -- Human: ${playerScore} Robot: ${computerScore}`
+            finalMessageP.textContent = 'Congratulations soldier! you beat the robots';
+            }else {
+                resultP.textContent = `Final Score -- Robot: ${computerScore} Human: ${playerScore}`
+                finalMessageP.textContent = 'all hail our robot overlords!';
+            }
+        }
 };
 
-function gameEnd(x){
-    const resultsP = document.getElementById('#results');
-    const finalMessageP = document.getElementById('#finalMessage');
-    for (let i = x; i > 5; i++) {
-        if (i === 5) {
-            resultsP.textContent = `And the final score is: Humans: ${playerScore} Robots: ${computerScore}`;
-        };
-        if (playerScore >= 3) {
-            finalMessageP.textContent = 'Congratulations soldier! You defeated the robots!';
-        }else if (playerScore === computerScore) {
-            finalMessageP.textContent = 'Tie game...FIST FIGHT!'
-        }else {
-            finalMessageP.textContent = 'All hail the robot overlords';
-        }
-    }
-};
+
 
 weapons.forEach(weapon => weapon.addEventListener('click', (e) => {
-    gameEnd(playRound(e));
+    playRound(e);
     updateScore();
 }))
 
