@@ -1,12 +1,12 @@
-
-.weapons {
-    display: inline-flex;
-    align-items: center;
+.body {
+    display: flex;
     justify-content: center;
-    
+}
 
+.displayDiv {
+    background: yellow;
+    width: fit-content;
+    text-align: center;
 }
-.btnImage {
-    height: 40px;
-    width: 40px;
-}
+
+

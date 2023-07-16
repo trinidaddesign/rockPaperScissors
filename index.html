@@ -12,26 +12,29 @@
     </style>
 </head>
 <body >
-    <h1>Welcome To Rock Paper Scissors</h1>
-    <p>It's human vs. robot. Don't let us down solider!</p>
-    <h2>Choose your weapon below...</h2>
-    <div id="weapons">
-        <button id="rock" class="weapon">rock</button>
-        <button id="paper" class="weapon">paper</button>
-        <button id="scissors" class="weapon">scissors</button>
+    <div class="body">
+    <div class="displayDiv">
+        <h1>Welcome To Rock Paper Scissors</h1>
+        <p>It's human vs. robot. Don't let us down solider!</p>
+        <h2>Choose your weapon below...</h2>
+        <div id="weapons" class="weaponDiv">
+            <button id="rock" class="weapon">rock</button>
+            <button id="paper" class="weapon">paper</button>
+            <button id="scissors" class="weapon">scissors</button>
+        <h1 class="scoreboard">Scoreboard</h1>
+        <div id="scores" class="score">
+            <div class="player">
+                <p id="playerScore">Player</p>
+            </div>
+            <div class="computer">
+                <p id="computerScore">computer</p>
+            </div>
+            <div class="gameOver">
+                <p id="results"></p>
+                <p id="finalMessage"></p>
+            </div>
+        </div>
     </div>
-    <h1 class="scoreboard">Scoreboard</h1>
-    <div id="scores" class="score">
-        <div class="player">
-            <p id="playerScore">Player</p>
-        </div>
-        <div class="computer">
-            <p id="computerScore">computer</p>
-        </div>
-        <div class="gameOver">
-            <p id="results"></p>
-            <p id="finalMessage"></p>
-        </div>
     </div>
     <script src="rpsGame.js"></script>
 </body>
