@@ -1,0 +1,11 @@
+.weapons {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+.btnImage {
+    height: 40px;
+    width: 40px;
+}
