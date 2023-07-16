@@ -6,7 +6,7 @@ let computerScore = 0;
 
 function playRound(e) {
     
-    const playerSelection = e.target.textContent;
+    const playerSelection = e.target.id;
     const computerSelection = getComputerChoice();
     const winner = compareSelection(playerSelection, computerSelection);
     
