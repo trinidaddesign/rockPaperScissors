@@ -1,12 +1,50 @@
-.body {
-    display: flex;
-    justify-content: center;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+body,
+.body {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
 
 .displayDiv {
-    background: yellow;
-    width: fit-content;
-    text-align: center;
+    grid-column-start: 2;
+    grid-row-start: 2;
+    height: 500px;
+    border: 1px solid blue;
+    background-color: orange;
 }
 
+#rock {
+    background-image: url(rpsImages/National-Pet-Rock-Day.png);
+    height: 100px;
+    width: 100px;
+    background-size: cover;
+    border-radius: 50%;
+    border: none;
+}
 
+#paper {
+    background-image: url(rpsImages/Paper-Airplane-DRAWING-–-STEP-8.png);
+    height: 100px;
+    width: 100px;
+    background-size: cover;
+    border-radius: 50%;
+    border: none;
+}
+
+#scissors {
+    background-image: url(rpsImages/scissors-icon-vector-21894464.png);
+    height: 100px;
+    width: 100px;
+    background-size: cover;
+    border-radius: 50%;
+    border: none;
+}
